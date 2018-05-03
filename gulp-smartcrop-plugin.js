@@ -1,8 +1,8 @@
 const through = require('through2')
-var gm = require('gm').subClass({ imageMagick: true });
+var gm = require('gm').subClass({ imageMagick: true })
 var smartcrop = require('smartcrop-gm')
 var fs = require('fs')
-var Vinyl = require('vinyl');
+var Vinyl = require('vinyl')
 
 function applySmartCrop(file, width, height) {
     return new Promise((resolve, reject) => {
@@ -18,7 +18,7 @@ function applySmartCrop(file, width, height) {
                 console.log(newFile.relative)
                 resolve(newFile)
             })
-        })
+        }).catch(reject)
     })
     
 }
@@ -38,5 +38,5 @@ module.exports = function({width, height}) {
             .catch((err) => callback())
     }
   
-    return through.obj(transform);
+    return through.obj(transform)
 }
