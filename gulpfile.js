@@ -12,4 +12,4 @@ gulp.task('default', () =>
             imagemin.jpegtran()
         ]))
 		.pipe(gulp.dest('dist/'))
-);
+)
